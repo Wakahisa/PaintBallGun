@@ -6,19 +6,15 @@ namespace PaintBallGun
 {
     class PaintBallGun
     {
-        public const int MAGAZINE_SIZE = 16;
+        public int MagazineSize { get; private set; } = 16;
 
         private int balls = 0;
-        private int ballsLoaded = 0;
 
-        public int GetBallsLoaded()
-        {
-            return ballsLoaded;
-        }
+        public int BallsLoaded { get; private set; }
 
         public bool IsEmpty()
         {
-            return ballsLoaded == 0;
+            return BallsLoaded == 0;
         }
 
         public int Balls
@@ -36,25 +32,32 @@ namespace PaintBallGun
 
         public void Reload()
         {
-            if(balls > MAGAZINE_SIZE)
+            if(balls > MagazineSize)
             {
-                ballsLoaded = MAGAZINE_SIZE;
+                BallsLoaded = MagazineSize;
             }
             else
             {
-                ballsLoaded = balls;
+                BallsLoaded = balls;
             }
         }
 
         public bool Shoot()
         {
-            if (ballsLoaded == 0)
+            if (BallsLoaded == 0)
             {
                 return false;
             }
-            ballsLoaded--;
+            BallsLoaded--;
             balls--;
             return true;
+        }
+
+        public PaintBallGun(int balls, int magazineSize, bool loaded)
+        {
+            this.balls = balls;
+            MagazineSize = magazineSize;
+            if (!loaded) Reload();
         }
     }
 }
