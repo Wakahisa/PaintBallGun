@@ -21,18 +21,17 @@ namespace PaintBallGun
             return ballsLoaded == 0;
         }
 
-        public int GetBalls()
+        public int Balls
         {
-            return balls;
-        }
+            get{ return balls; }
 
-        public void SetBalls(int numberOfBalls)
-        {
-            if(numberOfBalls > 0)
-            {
-                balls = numberOfBalls;
+            set{
+                if (value > 0)
+                {
+                    balls = value;
+                }
+                Reload();
             }
-            Reload();
         }
 
         public void Reload()

@@ -9,7 +9,7 @@ namespace PaintBallGun
             PaintBallGun gun = new PaintBallGun();
             while(true)
             {
-                Console.WriteLine($"{gun.GetBalls()} balls, {gun.GetBallsLoaded()} loaded");
+                Console.WriteLine($"{gun.Balls} balls, {gun.GetBallsLoaded()} loaded");
                 if (gun.IsEmpty())
                 {
                     Console.WriteLine("WARNING: you're out of ammo");
@@ -26,7 +26,7 @@ namespace PaintBallGun
                 }
                 else if (key == '+')
                 {
-                    gun.SetBalls(gun.GetBalls() + PaintBallGun.MAGAZINE_SIZE);
+                    gun.Balls += PaintBallGun.MAGAZINE_SIZE);
                 }
                 else if (key == 'q')
                 {
